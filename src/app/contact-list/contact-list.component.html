@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let contact of contacts">
+    {{contact}}
+    <button (click)="notificationDeleteContact(contact)">Delete</button>
+  </li>
+</ul>
