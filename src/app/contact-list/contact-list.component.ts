@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Person } from '../person'
 
 @Component({
   selector: 'app-contact-list',
@@ -6,13 +7,12 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent  {
-  @Output()
-  buttonDeletePress = new EventEmitter<string>();
-  @Input()
-  contacts: string[] = [];
+  
+  @Input() contacts: Person[];
+  @Output() buttonDeletePressed = new EventEmitter<Person>();
 
-  notificationDeleteContact(contact: string): void {
-    this.buttonDeletePress.emit(contact)
+  notificationDeleteContact(contact: Person): void {
+    this.buttonDeletePressed.emit(contact)
     console.log(contact);
   }
 }

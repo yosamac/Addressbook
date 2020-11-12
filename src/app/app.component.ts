@@ -1,24 +1,29 @@
 import { Component, OnInit } from '@angular/core';
+import { ContactsService } from './contacts.service';
+import { Person } from './person';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent  implements OnInit{
-  title = 'Keepcoders';
-  names: string[] = ["Steve Jobs", "Steve Wozniak", "Bill Gates", "Sundar Pichai", "Elon Musk", "Bob Esponja"];
+
+export class AppComponent  implements OnInit {
   
-  constructor() {
-    console.log("I am a constructor")
+  private _contacts: Person [];
+
+  constructor(private _contactsService: ContactsService) {
+    console.log("Component instanced and service injected");
   }
   
   ngOnInit() {
-    console.log("I am in the Hook OnInit")
+    console.log("I am in the Hook OnInit");
+    this._contacts = this._contactsService.getContacts();
+    console.log(this._contacts);
   }
 
-  deleteContact(name: string) {
-    console.log(name);
-    this.names = this.names.filter(n => n !== name);
+  deleteContact (contact: Person): void {
+    this._contactsService.deleteContact(contact);
+    this._contacts = this._contactsService.getContacts();
   }
 }
