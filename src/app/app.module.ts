@@ -5,9 +5,9 @@ import { ContactListComponent } from './contact-list/contact-list.component';
 import { ContactsService } from './contacts.service'
 
 @NgModule({
-  declarations: [ AppComponent, ContactListComponent ],
-  imports: [ BrowserModule ],
-  providers: [ ContactsService ],
-  bootstrap: [ AppComponent ]
+    declarations: [AppComponent, ContactListComponent],
+    imports: [BrowserModule],
+    providers: [ContactsService],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }
