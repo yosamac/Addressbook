@@ -1,29 +1,29 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from './contacts.service';
-import { Person } from './person';
+import { Contact } from './contact';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css']
 })
 
-export class AppComponent  implements OnInit {
-  
-  private _contacts: Person [];
+export class AppComponent implements OnInit {
 
-  constructor(private _contactsService: ContactsService) {
-    console.log("Component instanced and service injected");
-  }
-  
-  ngOnInit() {
-    console.log("I am in the Hook OnInit");
-    this._contacts = this._contactsService.getContacts();
-    console.log(this._contacts);
-  }
+    _contacts: Contact[];
 
-  deleteContact (contact: Person): void {
-    this._contactsService.deleteContact(contact);
-    this._contacts = this._contactsService.getContacts();
-  }
+    constructor(private _contactsService: ContactsService) {
+        console.log("Component instanced and service injected");
+    }
+
+    ngOnInit() {
+        console.log("I am in the Hook OnInit");
+        this._contacts = this._contactsService.getContacts();
+        console.log(this._contacts);
+    }
+
+    deleteContact(contact: Contact): void {
+        this._contactsService.deleteContact(contact);
+        this._contacts = this._contactsService.getContacts();
+    }
 }

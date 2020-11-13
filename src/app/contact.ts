@@ -1,9 +1,9 @@
-export class Person {
+export class Contact {
 
     constructor(
         public id: number,
-        public firstname: string,
-        public lastname: string,
+        public fullName: string,
+        public surname: string,
         public mobile?: string,
         public email?: string,
         public facebook?: string,

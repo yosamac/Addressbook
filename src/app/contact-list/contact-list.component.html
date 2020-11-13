@@ -1,6 +1,9 @@
 <ul>
-  <li *ngFor="let contact of contacts">
-    {{ contact.firstname }} {{ contact.lastname }}
-    <button (click)="notificationDeleteContact(contact)">Delete</button>
-  </li>
+    <li *ngFor="let contact of contacts"
+        [class.red]="contact.fullName.toLowerCase().startsWith('s')"
+        [style.color]="contact.fullName === 'Steve'? 'green': 'blue'"
+    >
+        {{ contact.fullName }} {{ contact.surname }}
+        <button (click)="notificationDeleteContact(contact)">Delete</button>
+    </li>
 </ul>

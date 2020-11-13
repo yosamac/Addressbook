@@ -1,7 +1,8 @@
 <header>
-  <h1>Addressbook</h1>
+    <h1>Addressbook</h1>
 </header>
 <app-contact-list
-  [contacts]="contacts"
-  (buttonDeletePressed)="deleteContact($event)">
+    [contacts]="_contacts"
+    (buttonDeletePressed)="deleteContact($event)"
+>
 </app-contact-list>

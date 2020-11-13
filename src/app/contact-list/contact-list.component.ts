@@ -1,18 +1,18 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Person } from '../person'
+import { Contact } from '../contact'
 
 @Component({
-  selector: 'app-contact-list',
-  templateUrl: './contact-list.component.html',
-  styleUrls: ['./contact-list.component.css']
+    selector: 'app-contact-list',
+    templateUrl: './contact-list.component.html',
+    styleUrls: ['./contact-list.component.css']
 })
-export class ContactListComponent  {
-  
-  @Input() contacts: Person[];
-  @Output() buttonDeletePressed = new EventEmitter<Person>();
+export class ContactListComponent {
 
-  notificationDeleteContact(contact: Person): void {
-    this.buttonDeletePressed.emit(contact)
-    console.log(contact);
-  }
+    @Input() contacts: Contact[];
+    @Output() buttonDeletePressed = new EventEmitter<Contact>();
+
+    notificationDeleteContact(contact: Contact): void {
+        this.buttonDeletePressed.emit(contact)
+        console.log(contact);
+    }
 }
